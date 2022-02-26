@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* main container class */
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+/* panels that are shown as images */
+/* bg-size = cover | this preserves rounded corners at large */
+/* initial value will be 0.5 of panel-images */
+.panel {
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 85vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 12px;
+  /* bcoz we want h3 to be absolute */
+  position: relative;
+  /* transition on the flex property */
+  transition: flex 0.8s ease-in;
+  /* -webkit-transition: all 3000ms ease-in; */
+}
+
+/* for h3 inside panels */
+/* h3 text show be at bottom */
+/* here we set opacity as 0 cuz we don`t want to show them when the panel is not active */
+.panel h3 {
+  font-size: 30px;
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  margin: 0;
+  opacity: 0;
+}
+
+/* when panel is actives then change the flex from 0.5 to 5.5 */
+.panel.active {
+  flex: 5.5;
+}
+
+/* here opacity is 1 bcoz its an active class */
+.panel.active h3 {
+  opacity: 1;
+  /* transition: opacity 0.3s ease-in 0.4s; */
+}
+
+/* if we cross 480 then this will kick in */
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+  /* remove the last 2 pannels */
+  /* display property = none so that last 2 panels can be hidden */
+  .panel:nth-of-type(4),.panel:nth-of-type(5) {
+    display: none;
+  }
+}
