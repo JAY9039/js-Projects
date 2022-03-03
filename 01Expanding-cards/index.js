@@ -13,7 +13,7 @@ panels.forEach((panel) => {
 //       panel.classlist.add('active')
 //   })
     panel.addEventListener('click', ()=> {
-        console.log("FUCK YOU");
+        console.log("FUCK YOU TOO");
         removeActiveClasses();
         panel.classList.add("active");
     });
